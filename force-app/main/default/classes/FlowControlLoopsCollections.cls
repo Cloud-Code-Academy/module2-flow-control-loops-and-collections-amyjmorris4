@@ -29,15 +29,11 @@ public with sharing class FlowControlLoopsCollections {
      * @return "Hello World!" if x greater than y, otherwise return null.
      */
     public static String helloWorld(Integer x, Integer y) {
-        if (x == null || y == null || x < y) {
-            return 'null';
+        if (x == null || y == null || x <= y) {
+            return null;
         }
-       
-        if (x > y) {
             return 'Hello World!';
     } 
-return null;
-}
 
     /**
      * Question 2
@@ -49,7 +45,7 @@ return null;
      * @return true if the person is eligible to vote, false otherwise.
      */
     public static Boolean votingEligibility(Integer age) {
-        if (age > 18) {
+        if (age >= 18) {
             return true;
         }
         return false; 
@@ -65,14 +61,17 @@ return null;
      * @return The maximum of the two numbers, or null if either number is null.
      */
     public static Integer findMax(Integer num1, Integer num2) {
-        // Initialize largestNum as null
+        //Check if either num1 or num2 is null
+        if (num1 == null || num2 == null){
+            return null;
+
+        }
         Integer largestNum;
         if (num1 > num2){
             largestNum = num1;
         } else {
             largestNum = num2;
         }
-
         return largestNum;
     }
 
@@ -181,12 +180,11 @@ return null;
      * @return The string "Hello World!; Hello World!; Hello World!; "
      */
     public static String returnHelloWorld() {
-        String result;
+        String result = '';
          for(Integer i = 0; i < 3; i++){
             result += 'Hello World!';
-            if (i < 2){
-                result += '; ';
-            }
+
+            result += '; ';
             
          }
         return result;
@@ -204,7 +202,7 @@ return null;
      */
     public static String repeatString(String inputString, Integer repeatCount) {
         //Initialize the result string
-        String result;
+        String result = '';
         //Use a for loop to append the inputString to the result repeatCount
         for (Integer i = 0; i < repeatCount; i++){
             result += inputString;
@@ -247,7 +245,7 @@ return null;
         List<Integer> numberList = new List<Integer>{1, 2, 3, 4, 5}; //DO NOT CHANGE
 
         // Remove the 3rd element (number 3) from the list
-        numberList.remove(Integer.valueOf(3)); //Removes the element with value 3
+        numberList.remove(Integer.valueOf(2)); //Removes the element with value 3
         
         // Return the updated list
         return numberList;
